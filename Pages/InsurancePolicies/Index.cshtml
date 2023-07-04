@@ -1,0 +1,72 @@
+﻿@page
+@model TestTask.Pages.InsurancePolicies.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InsurancePolicy[0].CustomerPassportSeries)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsurancePolicy[0].CustomerPassportNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsurancePolicy[0].WeeksPerPeriod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsurancePolicy[0].PeriodicFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsurancePolicy[0].WorkerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsurancePolicy[0].PolicyTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsurancePolicy[0].OfficeId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.InsurancePolicy) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerPassportSeries)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerPassportNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeeksPerPeriod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PeriodicFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,69 @@
+﻿@page
+@model TestTask.Pages.InsurancePolicies.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>InsurancePolicy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InsurancePolicy.CustomerPassportSeries" class="control-label"></label>
+                <input asp-for="InsurancePolicy.CustomerPassportSeries" class="form-control" />
+                <span asp-validation-for="InsurancePolicy.CustomerPassportSeries" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsurancePolicy.CustomerPassportNumber" class="control-label"></label>
+                <input asp-for="InsurancePolicy.CustomerPassportNumber" class="form-control" />
+                <span asp-validation-for="InsurancePolicy.CustomerPassportNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsurancePolicy.WeeksPerPeriod" class="control-label"></label>
+                <input asp-for="InsurancePolicy.WeeksPerPeriod" class="form-control" />
+                <span asp-validation-for="InsurancePolicy.WeeksPerPeriod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsurancePolicy.PeriodicFee" class="control-label"></label>
+                <input asp-for="InsurancePolicy.PeriodicFee" class="form-control" />
+                <span asp-validation-for="InsurancePolicy.PeriodicFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsurancePolicy.WorkerId" class="control-label"></label>
+                <input asp-for="InsurancePolicy.WorkerId" class="form-control" />
+                <span asp-validation-for="InsurancePolicy.WorkerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsurancePolicy.PolicyTypeId" class="control-label"></label>
+                <select asp-for="InsurancePolicy.PolicyTypeId">
+                    @foreach (var type in Model.InsPolicyTypes)
+                    {
+                        <option value="@type.Id">@type.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="InsurancePolicy.PolicyTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsurancePolicy.OfficeId" class="control-label"></label>
+                <input asp-for="InsurancePolicy.OfficeId" class="form-control" />
+                <span asp-validation-for="InsurancePolicy.OfficeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
